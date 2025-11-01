@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(180deg, #ffe5ec, #ffc2d1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+}
+
+/* ❤️ Heart Shape */
+.heart {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  background: #ff1744;
+  transform: rotate(-45deg);
+  animation: pulse 1.5s infinite ease-in-out;
+  box-shadow: 0 0 25px rgba(255, 23, 68, 0.8);
+  transition: background 0.5s, box-shadow 0.5s;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: inherit;
+  border-radius: 50%;
+  transition: background 0.5s;
+}
+
+.heart::before {
+  top: -60px;
+  left: 0;
+}
+
+.heart::after {
+  left: 60px;
+  top: 0;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: rotate(-45deg) scale(1);
+    box-shadow: 0 0 20px rgba(255, 23, 68, 0.6);
+  }
+  50% {
+    transform: rotate(-45deg) scale(1.2);
+    box-shadow: 0 0 50px rgba(255, 23, 68, 1);
+  }
+}
+
+.buttons {
+  margin-top: 60px;
+  display: flex;
+  gap: 50px;
+}
+
+button {
+  padding: 14px 35px;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+#yesBtn {
+  background: #ff4f79;
+  color: white;
+  box-shadow: 0 0 10px #ff4f79;
+}
+
+#yesBtn:hover {
+  background: #ff1744;
+  box-shadow: 0 0 25px #ff1744;
+  transform: scale(1.1);
+}
+
+#noBtn {
+  background: #ccc;
+  color: #333;
+}
+
+#message {
+  margin-top: 50px;
+  font-size: 32px;
+  font-weight: bold;
+  color: #ff1744;
+  opacity: 0;
+  transition: opacity 1s;
+}
